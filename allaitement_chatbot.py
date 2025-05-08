@@ -94,15 +94,16 @@ def rag_query(query):
     return answer
 
 # Interface Streamlit
-st.title("Chatbot d'Information sur l'Allaitement (LLL France)")
-st.subheader("Posez vos questions et obtenez des réponses basées sur le contenu de https://www.lllfrance.org/")
-
+st.title("Chatbot d'Information sur l'Allaitement")
+st.subheader("Posez vos questions et obtenez des réponses basées sur le contenu de https://www.lllfrance.org/.")
+st.write("Ce site n'est pas officiellement développé par la Leche League. Les réponses sont générées par IA et ne sauraient se substituer à un avis médical. L'IA peut parfois inventer des réponses, il est important de vérifier ce qui est proposé avec d'autres sources d'information.")
 # Initialisation de l'état de la session pour le corpus et les messages
 #if "corpus" not in st.session_state:
  #   st.session_state["corpus"] = create_corpus(BASE_URL)
 
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "Bonjour ! Posez votre question sur l'allaitement basée sur le site de La Leche League France."}]
+    st.session_state["messages"] = [{"role": "assistant", 
+                                     "content": "Bonjour ! Posez votre question sur l'allaitement et obtenez une réponse basée sur le site de La Leche League France."}]
 
 # Affichage des messages de chat précédents
 for msg in st.session_state["messages"]:
